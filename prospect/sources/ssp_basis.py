@@ -217,9 +217,11 @@ class SSPBasis(object):
             lumdist = cosmo.luminosity_distance(zred).value
             dfactor = (lumdist * 1e5)**2
         if peraa:
+            print "computing spectrum in erg/s/cm^2/AA"
             # spectrum will be in erg/s/cm^2/AA
             smspec *= to_cgs / dfactor * lightspeed / outwave**2
         else:
+            print "computing spectrum in maggies"
             # Spectrum will be in maggies
             smspec *= to_cgs / dfactor / 1e3 / (3631*jansky_mks)
 

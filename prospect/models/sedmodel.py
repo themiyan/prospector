@@ -86,7 +86,7 @@ class SedModel(ProspectorParams):
         self.set_parameters(theta)        
         spec, phot, extras = sps.get_spectrum(outwave=obs['wavelength'],
                                               filters=obs['filters'],
-                                              **self.params)
+                                              **dict(self.params, **kwargs))
         
         spec *= obs.get('normalization_guess', 1.0)
         #remove negative fluxes
